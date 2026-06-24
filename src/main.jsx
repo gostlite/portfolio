@@ -13,13 +13,15 @@ import {
 } from 'lucide-react';
 import './styles.css';
 import {
+  bestFitRoles,
   contact,
   cvDownloads,
   experience,
   highlights,
   projects,
   services,
-  skillGroups
+  skillGroups,
+  workPrinciples
 } from './portfolioData';
 
 function isPlaceholderUrl(url) {
@@ -54,11 +56,12 @@ function App() {
       <main id="top">
         <section className="hero-section">
           <div className="hero-copy">
-            <p className="eyebrow">Flutter Mobile Engineer | Backend Systems | Fintech</p>
+            <p className="eyebrow">Flutter Mobile Engineer | Backend Engineer | Fintech & Real-Time Systems</p>
             <h1>John Adeleke</h1>
             <p className="hero-text">
-              I build production-ready mobile apps(Flutter), backend services(Node/Go lang), and secure financial systems for logistics,
-              banking, authentication, notifications, and transaction workflows.
+              I build production-ready Flutter mobile apps and backend services using Node.js, NestJS, Go, and TypeScript.
+              I specialize in fintech, banking tools, logistics platforms, real-time tracking, authentication, notifications,
+              and secure transaction workflows.
             </p>
             <div className="hero-actions">
               <a className="primary-action" href="#projects">
@@ -94,7 +97,7 @@ function App() {
         <section id="projects" className="section-block">
           <div className="section-heading">
             <p className="eyebrow">Selected systems</p>
-            <h2>Apps and services I have worked on</h2>
+            <h2>Selected Projects & Production Systems</h2>
           </div>
           <div className="project-grid">
             {projects.map((project) => (
@@ -130,6 +133,7 @@ function App() {
                         key={link.label}
                         rel={isPlaceholderUrl(link.url) ? undefined : 'noreferrer'}
                         target={isPlaceholderUrl(link.url) ? undefined : '_blank'}
+                        aria-disabled={isPlaceholderUrl(link.url)}
                       >
                         {link.label} {link.kind === 'download' ? <Download size={16} /> : <ArrowUpRight size={16} />}
                       </a>
@@ -144,10 +148,10 @@ function App() {
         <section className="section-block split-layout">
           <div>
             <p className="eyebrow">Capabilities</p>
-            <h2>Mobile polish with backend depth</h2>
+            <h2>Mobile Engineering with Backend Depth</h2>
             <p className="section-copy">
-              I work comfortably across customer-facing apps, internal bank tools, APIs, event-driven services,
-              admin dashboards, and real-time delivery flows.
+              I work across customer-facing mobile apps, internal banking tools, backend APIs, event-driven services,
+              admin dashboards, and real-time delivery systems.
             </p>
           </div>
           <div className="skill-grid">
@@ -164,7 +168,7 @@ function App() {
         <section id="services" className="section-block services-band">
           <div className="section-heading">
             <p className="eyebrow">What clients can hire me for</p>
-            <h2>Focused engineering services</h2>
+            <h2>What I Can Build for Your Team</h2>
           </div>
           <div className="service-list">
             {services.map((service) => (
@@ -179,10 +183,41 @@ function App() {
           </div>
         </section>
 
+        <section className="section-block role-fit-section">
+          <div className="section-heading">
+            <p className="eyebrow">Best fit roles</p>
+            <h2>Roles Where I Can Contribute Fast</h2>
+            <p className="section-copy">
+              I am best suited for roles where mobile engineering, backend systems, fintech, or real-time product workflows are important.
+            </p>
+          </div>
+          <div className="role-grid">
+            {bestFitRoles.map((role) => (
+              <div className="role-card" key={role}>{role}</div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section-block principles-section">
+          <div className="section-heading">
+            <p className="eyebrow">How I work</p>
+            <h2>Reliable Engineering, Clear Communication</h2>
+          </div>
+          <div className="principle-grid">
+            {workPrinciples.map((principle) => (
+              <article className="principle-card" key={principle.title}>
+                <principle.icon size={22} />
+                <h3>{principle.title}</h3>
+                <p>{principle.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section id="experience" className="section-block">
           <div className="section-heading">
-            <p className="eyebrow">Past jobs</p>
-            <h2>Recent experience</h2>
+            <p className="eyebrow">Experience</p>
+            <h2>Professional Experience</h2>
           </div>
           <div className="timeline">
             {experience.map((role) => (
@@ -203,9 +238,10 @@ function App() {
         <section id="contact" className="section-block contact-section">
           <div>
             <p className="eyebrow">Contact and CV</p>
-            <h2>Pick the CV that matches the role</h2>
+            <h2>Hire Me for Flutter, Backend, or Full-Cycle Product Engineering</h2>
             <p className="section-copy">
-              Mobile-first clients can download the Flutter CV, while backend or full-stack teams can use the backend CV.
+              For Flutter/mobile roles, use my mobile CV. For backend, fintech, API, or full-cycle product engineering roles,
+              use my backend CV. I am open to remote, contract, full-time, and startup opportunities.
             </p>
             <div className="social-links">
               <a href={contact.github}><Github size={18} /> GitHub</a>

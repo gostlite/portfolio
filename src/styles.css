@@ -329,6 +329,8 @@ h3 {
 .project-card,
 .skill-card,
 .service-row,
+.role-card,
+.principle-card,
 .timeline-item,
 .cv-panel {
   border: 1px solid rgba(21, 32, 29, 0.1);
@@ -478,6 +480,32 @@ h3 {
   gap: 14px;
 }
 
+.role-grid,
+.principle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.role-card,
+.principle-card {
+  padding: 22px;
+}
+
+.role-card {
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 850;
+}
+
+.principle-card svg {
+  color: var(--teal);
+}
+
+.principle-card p {
+  color: var(--muted);
+}
+
 .service-row {
   display: grid;
   grid-template-columns: 42px minmax(0, 1fr);
@@ -592,7 +620,9 @@ h3 {
 
   .stats-band,
   .project-grid,
-  .service-list {
+  .service-list,
+  .role-grid,
+  .principle-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -635,6 +665,8 @@ h3 {
   .project-grid,
   .skill-grid,
   .service-list,
+  .role-grid,
+  .principle-grid,
   .timeline-item {
     grid-template-columns: 1fr;
   }
